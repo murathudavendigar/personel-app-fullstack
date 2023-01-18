@@ -1,0 +1,6 @@
+http://127.0.0.1:8000/products/  => bütün paylaşılan ürünleri getiriyor  post methodu ise ürün ekliyor
+http://127.0.0.1:8000/products/1/  => ürün detaylarını getiriyor
+http://127.0.0.1:8000/user/register/  => yeni kullanıcı kaydı
+http://127.0.0.1:8000/user/11/   => bir kullanıcının profili
+http://127.0.0.1:8000/auth/login/   => bir kullanıcının login olması için (username ve şifre ile)
+http://127.0.0.1:8000/auth/logout/  => kullanıcının logout olması için (Token ile)
