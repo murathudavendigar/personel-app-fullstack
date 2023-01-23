@@ -1,14 +1,15 @@
 import Head from "next/head";
 import React, { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import Loader from "../components/Loader";
 import useAuth from "../hooks/useAuth";
 import { RegisterType } from "../types";
+import { motion } from "framer-motion";
 
 type Props = {};
 
 const register = (props: Props) => {
-  const { errorsMessage, registerFunc } = useAuth();
-  // console.log(errorsMessage);
+  const { loading, errorsMessage, registerFunc } = useAuth();
 
   const {
     register,
@@ -26,9 +27,13 @@ const register = (props: Props) => {
         <title>Register</title>
       </Head>
 
-      <div className="flex  justify-center items-center h-screen">
+      <motion.div
+        initial={{ y: -1300 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 1.5 }}
+        className="flex justify-center items-center h-screen">
         <form
-          className=" flex flex-col gap-6 p-6"
+          className=" flex flex-col gap-10"
           onSubmit={handleSubmit(onSubmit)}>
           <div className="inputDiv">
             <input
@@ -39,7 +44,7 @@ const register = (props: Props) => {
             />
             {errorsMessage?.username?.map((item, index) => (
               <p className="errorMessage" key={index}>
-                {item}
+                * {item}
               </p>
             ))}
           </div>
@@ -52,7 +57,7 @@ const register = (props: Props) => {
             />
             {errorsMessage?.email?.map((item, index) => (
               <p className="errorMessage" key={index}>
-                {item}
+                * {item}
               </p>
             ))}
           </div>
@@ -79,11 +84,9 @@ const register = (props: Props) => {
               className="registerInput"
               {...register("password", { required: true })}
             />
-            {errorsMessage?.password?.map((item, index) => (
-              <p className="errorMessage" key={index}>
-                {item}
-              </p>
-            ))}
+            {errorsMessage?.password && (
+              <p className="errorMessage">* {errorsMessage.password[0]} </p>
+            )}
           </div>
           <div className="inputDiv">
             <input
@@ -92,16 +95,16 @@ const register = (props: Props) => {
               className="registerInput"
               {...register("password2", { required: true })}
             />
-            {errorsMessage?.password2?.map((item, index) => (
-              <p className="errorMessage" key={index}>
-                {item}
-              </p>
-            ))}
+            {errorsMessage?.password2 && (
+              <p className="errorMessage">* {errorsMessage.password2[0]} </p>
+            )}
           </div>
 
-          <button type="submit">Register</button>
+          <button type="submit" className="submitButton">
+            {loading ? <Loader color="#bcc" /> : "Register"}
+          </button>
         </form>
-      </div>
+      </motion.div>
     </div>
   );
 };
