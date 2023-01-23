@@ -4,19 +4,21 @@ import axios from "axios";
 import { REGISTER_URL } from "../constant/urls";
 
 const useAuth = () => {
-  const [errorsMessage, setErrorsMessage] = useState<ErrorType>();
+  const [errorsMessage, setErrorsMessage] = useState<ErrorType | null>(null);
+  const [loading, setLoading] = useState(false);
 
   const registerFunc = async (registerInfo: RegisterType) => {
+    setLoading(true);
     try {
       const { data } = await axios.post(REGISTER_URL, registerInfo);
-      console.log(data);
+      setErrorsMessage(null);
     } catch (error: any) {
       setErrorsMessage(error.response.data);
-      // console.log(error);
     }
+    setLoading(false);
   };
 
-  return { errorsMessage, registerFunc };
+  return { loading, errorsMessage, registerFunc };
 };
 
 export default useAuth;

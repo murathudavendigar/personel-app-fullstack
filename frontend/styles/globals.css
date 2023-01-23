@@ -1,3 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-r from-gray-700 via-gray-900 to-black text-white font-Josefin;
+  }
+}
+
+@layer components {
+  .registerInput {
+    @apply px-5 py-2.5 rounded-md bg-[#d2ebcd]/10 text-[#bcc] font-semibold focus:outline-none focus:bg-[#d2ebcd] transition-all duration-300 focus:text-[#111] placeholder:text-orange-400 border-b-4  border-[#d2ebcd]/10 focus:border-orange-400;
+  }
+}
