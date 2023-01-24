@@ -29,4 +29,5 @@ export type ProductType = {
   seller: string | null;
   seller_id: number;
   vote: number | null;
+  name: string;
 };

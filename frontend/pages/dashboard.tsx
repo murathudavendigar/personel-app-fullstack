@@ -12,7 +12,7 @@ const dashboard = (props: Props) => {
   }, []);
 
   return (
-    <div>
+    <div className="flex flex-wrap items-center justify-center mt-20 gap-10">
       {products.map((item) => (
         <Product item={item} />
       ))}

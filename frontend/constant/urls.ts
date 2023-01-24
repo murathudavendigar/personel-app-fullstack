@@ -6,4 +6,4 @@ export const LOGIN_URL = `${BASE_URL}/user/auth/login/`;
 
 //! DATA
 export const PRODUCTS_URL = `${BASE_URL}/products/`;
-export const PRODUCT_BY_ID_URL = `${BASE_URL}/products/`;
+export const PRODUCT_BY_ID_URL = `${BASE_URL}/products`;
