@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Product from "../components/Product";
 import useFetchData from "../hooks/useFetchData";
 
 type Props = {};
@@ -10,7 +11,13 @@ const dashboard = (props: Props) => {
     fetchAllData();
   }, []);
 
-  return <div>dashboard</div>;
+  return (
+    <div>
+      {products.map((item) => (
+        <Product item={item} />
+      ))}
+    </div>
+  );
 };
 
 export default dashboard;

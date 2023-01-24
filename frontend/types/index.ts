@@ -19,3 +19,14 @@ export type LoginType = {
   username: string;
   password: string;
 };
+
+export type ProductType = {
+  amount: number;
+  brand: string;
+  created_date: string;
+  id: number;
+  rating: number | null;
+  seller: string | null;
+  seller_id: number;
+  vote: number | null;
+};

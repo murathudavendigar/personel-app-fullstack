@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useState } from "react";
 import { PRODUCTS_URL } from "../constant/urls";
+import { ProductType } from "../types";
 
 const useFetchData = () => {
-  const [products, setProducts] = useState();
+  const [products, setProducts] = useState<ProductType[] | []>([]);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState();
 
