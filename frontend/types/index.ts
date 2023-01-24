@@ -12,4 +12,10 @@ export type ErrorType = {
   email: string[];
   password: string[];
   password2: string[];
+  non_field_errors: string[];
+};
+
+export type LoginType = {
+  username: string;
+  password: string;
 };
