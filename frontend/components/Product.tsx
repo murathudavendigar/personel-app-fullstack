@@ -18,7 +18,7 @@ const Product = ({ item }: Props) => {
   };
 
   return (
-    <div className="flex justify-center items-center">
+    <div key={item.id} className="flex justify-center items-center">
       <div className="bg-gray-500 p-10 rounded-lg shadow-md">
         <h1 className="text-xl font-bold">{item.brand}</h1>
         <div className="mt-4 mb-10">
